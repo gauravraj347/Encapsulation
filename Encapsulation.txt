@@ -1,0 +1,84 @@
+
+1. Encapsulation in Java is a process of wrapping code and data together into a single unit, such as a class. It is also called data hiding because it prevents the data from being
+ accessed by the code outside the class. Encapsulation helps to protect the data from unauthorized access and modification, and to maintain the integrity and consistency of the data.
+
+2. The important features of Encapsulation are:
+
+    - It provides data abstraction, which means hiding the implementation details from the user and only exposing the relevant functionality.
+    - It provides data security, which means controlling the access to the data using access modifiers such as private, public, protected, and default.
+    - It provides data validation, which means checking the data before setting or getting its value using getter and setter methods.
+    - It provides code reusability, which means reducing the code duplication and complexity by creating reusable classes with encapsulated data and methods.
+3. Getter and setter methods in Java are widely used to access and manipulate the values of class fields. Usually, class fields are decorated with a private access specifier. 
+Thus, to access them, public access specifiers are used with the getter and setter methods.
+
+    - A getter method is a public method that returns the value of a private field. It is also called an accessor method. It usually starts with the word "get" followed by the name 
+	of the field. For example, `public String getName() { return name; }`
+    - A setter method is a public method that sets or updates the value of a private field. It is also called a mutator method. It usually starts with the word "set" followed by the 
+name of the field. It may also perform some validation or logic before assigning the value. For example, `public void setName(String name) { this.name = name; }`
+4. The use of this keyword in Java is to refer to the current object instance. It can be used to access or modify the fields and methods of the current object, to invoke the current 
+class constructor, to pass the current object as a parameter, and to return the current object from a method. For example:
+
+    - To access the current object's fields: `this.name = name;`
+    - To invoke the current object's methods: `this.display();`
+    - To invoke the current class constructor: `this(10, 20);`
+    - To pass the current object as a parameter: `someMethod(this);`
+    - To return the current object from a method: `return this;`
+5. The advantage of Encapsulation in Java is that it provides a way to achieve data hiding, data abstraction, data security, data validation, and code reusability. It also makes 
+the code more readable, maintainable, and modular. It also helps to reduce coupling and increase cohesion among the classes.
+
+6. To achieve encapsulation in Java, we need to follow these steps:
+
+    - Declare the class fields as private, so that they cannot be accessed directly from outside the class.
+    - Provide public getter and setter methods for each field, so that they can be accessed and modified through these methods.
+    - Optionally, add some logic or validation in the getter and setter methods, to ensure the data integrity and consistency.
+    - Optionally, use the this keyword to refer to the current object instance within the class.
+
+    Here is an example of a class that achieves encapsulation in Java:
+
+    ```java
+    // A class that encapsulates the data and methods related to a person
+    public class Person {
+        // Private fields to store the name and age of the person
+        private String name;
+        private int age;
+
+        // A public constructor to initialize the fields
+        public Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        // A public getter method to return the name of the person
+        public String getName() {
+            return name;
+        }
+
+        // A public setter method to set the name of the person
+        // It also validates that the name is not null or empty
+        public void setName(String name) {
+            if (name == null || name.isEmpty()) {
+                throw new IllegalArgumentException("Name cannot be null or empty");
+            }
+            this.name = name;
+        }
+
+        // A public getter method to return the age of the person
+        public int getAge() {
+            return age;
+        }
+
+        // A public setter method to set the age of the person
+        // It also validates that the age is positive and less than 100
+        public void setAge(int age) {
+            if (age < 0 || age > 100) {
+                throw new IllegalArgumentException("Age must be between 0 and 100");
+            }
+            this.age = age;
+        }
+
+        // A public method to display the details of the person
+        public void display() {
+            System.out.println("Name: " + this.name);
+            System.out.println("Age: " + this.age);
+        }
+    }
